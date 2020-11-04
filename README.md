@@ -19,19 +19,19 @@ Xavier Morin - 40077865
 
 ---
 ## Structure
-The class "Informed_Search" is designed to be the parent class of the three childs:
-  -Uniform Search
-  -Greedy Best First
-  -A*
+#### The class "Informed_Search" is designed to be the parent class of the three childs:
+* Uniform Search
+* Greedy Best First
+* A*
   
-Each child should overwrite those two functions:
--Add_to_open_list(self,new_state):
+#### Each child should overwrite those two functions:
+* Add_to_open_list(self,new_state):
   Which add the border Nodes with their informations ( G, H, F) # Mostly H and F will change
--Move(self):
+* Move(self):
   Which choose which node to visit next. # Depends on the Heuristic
 
-Utils.py
-  It contains useful functions or utilary ones.
+#### Utils.py
+ * It contains useful functions.
 ## How To Run 
 
 ---

@@ -32,13 +32,52 @@ class Informed_Search:
             self.goal_state= True
 
         return False
+    def f(self,h,g):
+        '''
+        Could be overwrite, but not necessarily
+        '''
+        return h+g
+
+    def h(self,state):
+        '''Need to be overwite
+        This function should return the heuristic
+        '''
+        print('Need to be overwite')
+        return 0
+    
+    def next_node(self):
+        '''
+        Need to be overwrite
+        This function should return the index of the next Node to visit in the open_list.
+        Return an int!
+        '''
+        print('Need to be overwrite') 
+        return 0
+    
+    def move(self):
+            if len(self.open_list)<1:
+                self.goal_state=True
+                print('No Solution Found.')
+            else:
+                next_node_id=self.next_node()
+                self.current_state=self.open_list[next_node_id]
+                self.is_goal_state()
+                self.open_list.pop(next_node_id)
+                self.close_list.append(self.current_state)
 
     def add_to_open_list(self,new_state):
-        "Need to be overwrite"
-        print('Need to be overwite')
-    def move(self):
-        'Need to be overwrite'
-        print('Need to be overwite')
+        index=-1
+        if not any( [ all(l.state==new_state.state) for l in self.close_list]):
+            for i,bool_ in enumerate( [ all(l.state==new_state.state) for l in self.open_list]):
+                if bool_:
+                    index=i
+                    break
+            if index==-1:
+                self.open_list.append(new_state)     
+            else:
+                if(new_state.g<self.open_list[index].g):
+                    self.open_list[index]=new_state
+
 
     def update_open_list(self):
         
@@ -48,7 +87,9 @@ class Informed_Search:
             #Going up or down
             tile=(id_0+4)%8
             new_state=swap(self.current_state.state,id_0,tile)
-            self.add_to_open_list(Node(self.current_state,new_state,tile,1,1+self.current_state.g,0,0))
+            h=self.h(new_state)
+            g=1+self.current_state.g
+            self.add_to_open_list(Node(self.current_state,new_state,tile,1,g,h,self.f(h,g)))
             
         
             #For extremities
@@ -57,33 +98,45 @@ class Informed_Search:
                 #Wrapping move
                 tile=(int(id_0/4)*4)+3-id_0%4
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,2,2+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=2+self.current_state.g
+                self.add_to_open_list(Node(self.current_state,new_state,tile,2,g,h,self.f(h,g)))
                 
                 #Big Diagonal move
                 tile=int(id_0-1+id_0%4*2/3)%8
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,3,3+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=3+self.current_state.g
+                self.add_to_open_list(Node(self.current_state,new_state,tile,3,g,h,self.f(h,g)))
 
                 #Small Diagonal move
                 tile=int((1-int(id_0/4))*4+1+id_0%4*2/3)
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,3,3+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=3+self.current_state.g                
+                self.add_to_open_list(Node(self.current_state,new_state,tile,3,g,h,self.f(h,g)))
 
                 #Left or Right move
                 tile=int(id_0+1-id_0%4*2/3)
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,1,1+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=1+self.current_state.g                
+                self.add_to_open_list(Node(self.current_state,new_state,tile,1,g,h,self.f(h,g)))
 
             else:
                 #Going left
                 tile=id_0-1
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,1,1+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=1+self.current_state.g                
+                self.add_to_open_list(Node(self.current_state,new_state,tile,1,g,h,self.f(h,g)))
 
                 #Going right
                 tile=id_0+1
                 new_state=swap(self.current_state.state,id_0,tile)
-                self.add_to_open_list(Node(self.current_state,new_state,tile,1,1+self.current_state.g,0,0))
+                h=self.h(new_state)
+                g=1+self.current_state.g                
+                self.add_to_open_list(Node(self.current_state,new_state,tile,1,g,h,self.f(h,g)))
 
 
 
@@ -105,7 +158,7 @@ class Informed_Search:
         with open(path,'+w') as f:
             if self.goal_state:
                 for i in range(len(self.close_list)):
-                    str_='0 0 '+str(self.close_list[i].cost)+' '+" ".join(str(a) for a in self.close_list[i].state)+'\n'
+                    str_=str(self.close_list[i].f)+" "+ str(self.close_list[i].g) +' '+str(self.close_list[i].h)+' '+" ".join(str(a) for a in self.close_list[i].state)+'\n'
                     f.write(str_)
             else:
                 f.write("No solution found.")

@@ -1,4 +1,5 @@
 import numpy as np
+import os
 def generate_puzzles(nb,dim,path):
     with open(path,'a') as f:
         arr=np.arange(dim)

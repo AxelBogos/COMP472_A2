@@ -180,6 +180,7 @@ class Informed_Search:
                 while(state.Parent is not None):
                     all_state.append(state)
                     state=state.Parent
+                all_state.append(state)
                 for i in range(len(all_state)-1,-1,-1):
                     str_=str(all_state[i].tile)+' '+str(all_state[i].cost)+" "+" ".join(str(a) for a in all_state[i].state)+'\n'
                     f.write(str_)

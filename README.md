@@ -25,10 +25,10 @@ Xavier Morin - 40077865
 * A*
   
 #### Each child should overwrite those two functions:
-* Add_to_open_list(self,new_state):
-  Which add the border Nodes with their informations ( G, H, F) # Mostly H and F will change
-* Move(self):
-  Which choose which node to visit next. # Depends on the Heuristic
+* next_node(self):
+  Which return the index of the next node to visit in the open_list.
+* h(self,state):
+  return the Heuristic given a state
 
 #### Utils.py
  * It contains useful functions.

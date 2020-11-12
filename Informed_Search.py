@@ -30,20 +30,14 @@ class Informed_Search:
         self.goal_state_2=[]
         [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
         self.goal_state=self.is_goal_state()
-        
-
-
-
-
-        
 
     def is_goal_state(self):
         if np.all(self.current_node.state==self.goal_state_1):
             self.goal_state= True
         if np.all(self.current_node.state==self.goal_state_2):
             self.goal_state= True
-
         return False
+
     def f(self,h,g):
         '''
         Could be overwrite, but not necessarily
@@ -191,15 +185,6 @@ class Informed_Search:
                 g=3+self.current_node.g                
                 self.add_to_open_list(Node(self.current_node,new_state,tile_nb,3,g,h,self.f(h,g)))
 
-               
-
-           
-
-               
-
-
-    
-        
     def print(self):
         print('Current State:',self.current_node.state)
         print('Close_list:')
@@ -209,11 +194,8 @@ class Informed_Search:
         for l in self.open_list:
             print(' ',l.state,' Cost: ',l.g)
 
-
-      
     def create_search_file(self,path):
-      
-        with open(path,'+w') as f:
+        with open(path,'w+') as f:
             if self.goal_state:
                 for i in range(len(self.close_list)):
                     str_=str(self.close_list[i].f)+" "+ str(self.close_list[i].g) +' '+str(self.close_list[i].h)+' '+" ".join(str(a) for a in self.close_list[i].state)+'\n'
@@ -223,7 +205,7 @@ class Informed_Search:
 
     def create_solution_file(self,path,time):
         
-        with open(path,'+w') as f:
+        with open(path,'w+') as f:
             if self.goal_state:
                 state=self.current_node
                 all_state=[]

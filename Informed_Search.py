@@ -142,7 +142,7 @@ class Informed_Search:
                     tile_id=id_0-self.cols+1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                temp=Node(self.current_node,new_state,tile_nb,1,2+self.current_node.g ,-1,-1)
+                temp=Node(self.current_node,new_state,tile_nb,2,2+self.current_node.g ,-1,-1)
                 temp.h=self.h(temp)
                 temp.f=self.f(temp.h,temp.g)
                 self.add_to_open_list(temp)
@@ -154,7 +154,7 @@ class Informed_Search:
                     tile_id=id_0-self.cols*(self.rows-1)
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                temp=Node(self.current_node,new_state,tile_nb,1,2+self.current_node.g ,-1,-1)
+                temp=Node(self.current_node,new_state,tile_nb,2,2+self.current_node.g ,-1,-1)
                 temp.h=self.h(temp)
                 temp.f=self.f(temp.h,temp.g)
                 self.add_to_open_list(temp)
@@ -171,7 +171,7 @@ class Informed_Search:
                 
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                temp=Node(self.current_node,new_state,tile_nb,1,3+self.current_node.g ,-1,-1)
+                temp=Node(self.current_node,new_state,tile_nb,3,3+self.current_node.g ,-1,-1)
                 temp.h=self.h(temp)
                 temp.f=self.f(temp.h,temp.g)
                 self.add_to_open_list(temp)
@@ -187,7 +187,7 @@ class Informed_Search:
                     tile_id-=1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                temp=Node(self.current_node,new_state,tile_nb,1,3+self.current_node.g ,-1,-1)
+                temp=Node(self.current_node,new_state,tile_nb,3,3+self.current_node.g ,-1,-1)
                 temp.h=self.h(temp)
                 temp.f=self.f(temp.h,temp.g)
                 self.add_to_open_list(temp)

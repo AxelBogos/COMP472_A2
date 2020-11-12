@@ -35,7 +35,8 @@ def main():
     if not os.path.exists('Solution_files'):
         os.makedirs('Solution_files')
 
-    callFunction('ucs', Uniform_cost)
+    #callFunction('ucs', Uniform_cost)
+    callFunction('gbf',Greedy_best_first_h1)
 
 if __name__ == "__main__":
     main()

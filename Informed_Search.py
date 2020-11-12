@@ -1,4 +1,5 @@
 from utils import *
+from heapq import heappop,heappush,heapify
 
 class Node():
     def __init__(self,Parent,state,tile,cost,g,h,f):
@@ -16,6 +17,11 @@ class Node():
         self.h=h
         #f=g+h
         self.f=f
+        #unique node_state ID
+        self.nodeStateID=hash(str(state))
+
+    def __lt__(self, other):
+        return self
         
 class Informed_Search:
 
@@ -23,9 +29,8 @@ class Informed_Search:
         self.current_node=Node(None,initial_state,0,0,0,0,0)
         self.rows=rows
         self.cols=cols
-       
         self.open_list = []
-        self.close_list = [self.current_node]
+        self.close_list = {self.current_node.nodeStateID:self.current_node}
         self.goal_state_1=np.arange(self.rows*self.cols)
         self.goal_state_2=[]
         [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
@@ -59,31 +64,27 @@ class Informed_Search:
         '''
         print('Need to be overwrite') 
         return 0
-    
+
     def move(self):
-            if len(self.open_list)<1:
+            if not self.open_list:
                 self.goal_state=True
                 print('No Solution Found.')
             else:
-                next_node_id=self.next_node()
-                self.current_node=self.open_list[next_node_id]
+                self.current_node=heappop(self.open_list)[1]
                 self.is_goal_state()
-                self.open_list.pop(next_node_id)
-                self.close_list.append(self.current_node)
+                self.close_list[self.current_node.nodeStateID]=self.current_node
 
-    def add_to_open_list(self,new_state):
-        index=-1
-        if not any( [ all(l.state==new_state.state) for l in self.close_list]):
-            for i,bool_ in enumerate( [ all(l.state==new_state.state) for l in self.open_list]):
-                if bool_:
-                    index=i
-                    break
-            if index==-1:
-                self.open_list.append(new_state)     
+    def add_to_open_list(self,new_node):
+        if new_node.nodeStateID not in self.close_list.keys():
+            index_node=[(index,node[1]) for index,node in enumerate(self.open_list) if node[1].nodeStateID == new_node.nodeStateID]
+            if not index_node:
+                heappush(self.open_list,(self.h(new_node),new_node))
             else:
-                if(new_state.g<self.open_list[index].g):
-                    self.open_list[index]=new_state
-
+                index,node=index_node[0]
+                if(new_node.g<node.g):
+                    self.open_list[index][1].g=new_node.g
+                    self.open_list[index][1].h=self.h(self.open_list[index][1])
+                    heapify(self.open_list)
 
     def update_open_list(self):
         
@@ -95,36 +96,40 @@ class Informed_Search:
                 tile_id=id_0-self.cols
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=1+self.current_node.g
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,1,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,1+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
             #Going Down
             if(id_0<self.cols*self.rows-self.cols):
                 tile_id=id_0+self.cols
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=1+self.current_node.g
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,1,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,1+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
             
              #Going left
             if(id_0%self.cols!=0):
                 tile_id=id_0-1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=1+self.current_node.g                
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,1,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,1+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
             #Going right
             if(id_0%self.cols!=self.cols-1):
                 tile_id=id_0+1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=1+self.current_node.g                
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,1,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,1+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
 
             #For corners
@@ -137,9 +142,10 @@ class Informed_Search:
                     tile_id=id_0-self.cols+1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=2+self.current_node.g
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,2,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,2+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
                 #Wrapping move up_down
                 if id_0<self.cols:
@@ -148,9 +154,10 @@ class Informed_Search:
                     tile_id=id_0-self.cols*(self.rows-1)
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=2+self.current_node.g
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,2,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,2+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
                 
                 #Big Diagonal move
                 if id_0<self.cols:
@@ -161,14 +168,13 @@ class Informed_Search:
                     tile_id+=self.cols-1
                 else:
                     tile_id+=-self.cols+1
-
-              
                 
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=3+self.current_node.g
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,3,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,3+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
                 #Small Diagonal move
                 if id_0<self.cols:
@@ -181,14 +187,15 @@ class Informed_Search:
                     tile_id-=1
                 tile_nb=self.current_node.state[tile_id]
                 new_state=swap(self.current_node.state,id_0,tile_id)
-                h=self.h(new_state)
-                g=3+self.current_node.g                
-                self.add_to_open_list(Node(self.current_node,new_state,tile_nb,3,g,h,self.f(h,g)))
+                temp=Node(self.current_node,new_state,tile_nb,1,3+self.current_node.g ,-1,-1)
+                temp.h=self.h(temp)
+                temp.f=self.f(temp.h,temp.g)
+                self.add_to_open_list(temp)
 
     def print(self):
         print('Current State:',self.current_node.state)
         print('Close_list:')
-        for l in self.close_list:
+        for l in self.close_list.values():
             print(' ',l.state)
         print('Open List:')
         for l in self.open_list:
@@ -197,14 +204,13 @@ class Informed_Search:
     def create_search_file(self,path):
         with open(path,'w+') as f:
             if self.goal_state:
-                for i in range(len(self.close_list)):
+                for i in self.close_list.keys():
                     str_=str(self.close_list[i].f)+" "+ str(self.close_list[i].g) +' '+str(self.close_list[i].h)+' '+" ".join(str(a) for a in self.close_list[i].state)+'\n'
                     f.write(str_)
             else:
                 f.write("No solution found.")
 
     def create_solution_file(self,path,time):
-        
         with open(path,'w+') as f:
             if self.goal_state:
                 state=self.current_node

@@ -1,11 +1,9 @@
 from Informed_Search import *
 
 class Uniform_cost(Informed_Search):
-    
 
     def h(self,state):
-        return 0
-    
+        return state.g
 
     def next_node(self):
         g_min=10000

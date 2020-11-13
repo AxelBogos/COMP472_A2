@@ -6,14 +6,14 @@ import time
 
 #Load all puzzles
 global puzzles
-puzzles=input_puzzles('puzzles.txt')
+puzzles,rows,cols=input_puzzles('puzzles.txt')
 
 #Solve all puzzles with Uniform_Cost
 
 
 def callFunction(name,function):
     for i,puzzle in enumerate(puzzles):
-        U_C=function(puzzles[i])
+        U_C=function(puzzles[i],rows,cols)
         print('Begin to solve puzzle '+str(i))
         start=time.time()
         while(not U_C.goal_state):

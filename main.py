@@ -2,6 +2,8 @@ from utils import *
 from Uniform_cost import *
 from Greedy_best_first_h1 import *
 from Greedy_best_first_h2 import *
+from Astar_h1 import *
+from Astar_h2 import *
 import time
 
 #Load all puzzles
@@ -38,7 +40,7 @@ def main():
 
     # callFunction('ucs', Uniform_cost)
     # callFunction('gbf',Greedy_best_first_h1)
-    callFunction('gbf',Greedy_best_first_h2)
+    callFunction('Astar_h1',Astar_h1)
 
 if __name__ == "__main__":
     main()

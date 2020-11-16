@@ -30,12 +30,7 @@ class Informed_Search:
         self.goal_state_2=[]
         [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
         self.goal_state=self.is_goal_state()
-        
-
-
-
-
-        
+             
 
     def is_goal_state(self):
         if np.all(self.current_node.state==self.goal_state_1):

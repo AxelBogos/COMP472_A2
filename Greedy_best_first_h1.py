@@ -9,6 +9,14 @@ class Greedy_best_first_h1(Informed_Search):
         h2=np.sum(state!=f2)
         # return the smalllest h
         return min(h1,h2)
+    def next_node(self):
+        h_min=10000
+        id_min=None
+        for i in range(len(self.open_list)):
+            if  h_min> self.open_list[i].h:
+                id_min=i
+                h_min=self.open_list[i].h
+        return id_min
 
     # def h (self, state):
     #     f1=np.arange(8)
@@ -31,11 +39,4 @@ class Greedy_best_first_h1(Informed_Search):
     #                 h2+=abs(i*2%7-sate[i])
     #     # return the smalllest h
     #     return min(h1,h2)
-    def next_node(self):
-        h_min=10000
-        id_min=None
-        for i in range(len(self.open_list)):
-            if  h_min> self.open_list[i].h:
-                id_min=i
-                h_min=self.open_list[i].h
-        return id_min
+   

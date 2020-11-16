@@ -3,7 +3,7 @@ from Informed_Search import *
 class Uniform_cost(Informed_Search):
 
     def h(self,state):
-        return state.g
+        return 0
 
     def next_node(self):
         g_min=10000
@@ -13,6 +13,9 @@ class Uniform_cost(Informed_Search):
                 id_min=i
                 g_min=self.open_list[i].g
         return id_min
+
+    def cost_to_push(self,node):
+        return node.g
 
 
    

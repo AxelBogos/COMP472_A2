@@ -49,6 +49,12 @@ for name, sol_path ,search_path in zip(path_names,solution_path,search_path):
         
         with open(file_ ,'r') as f:
             nb_steps=0
+            line=f.read()
+            if line=='No solution found.':
+                nb_files-=1
+                continue
+            else:
+                f.seek(0)
             for line in f:
                 nb_steps+=1
             total_nb_steps+=nb_steps
@@ -61,6 +67,11 @@ for name, sol_path ,search_path in zip(path_names,solution_path,search_path):
             nb_move=0
             cost=0
             time=0
+            line=f.read()
+            if line=='No solution found.':
+                continue
+            else:
+                f.seek(0)
             for line in f:
                 line=line.split()
                 if len(line)==2:

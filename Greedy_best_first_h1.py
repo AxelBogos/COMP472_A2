@@ -18,6 +18,8 @@ class Greedy_best_first_h1(Informed_Search):
                 h_min=self.open_list[i].h
         return id_min
 
+    def cost_to_push(self,node):
+        return node.h
     # def h (self, state):
     #     f1=np.arange(8)
     #     f2=np.append(np.arange(0,8,2),np.arange(1,8,2))

@@ -42,6 +42,8 @@ for name, sol_path ,search_path in zip(path_names,solution_path,search_path):
             if file_in.endswith(".txt"):
                 sol_files.append(file_in)
     nb_files=len(sol_files)
+    if nb_files==0:
+        continue
     total_nb_steps=0
     for file_ in search_files:
         

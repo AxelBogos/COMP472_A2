@@ -8,8 +8,8 @@ class info():
         self.average_cost=0
         self.average_search_step=0
 
-path_in =r'C:\Users\xavie\Documents\University\comp_472\COMP472_A2'
-stats_file=r'C:\Users\xavie\Documents\University\comp_472\COMP472_A2\stats.txt'
+path_in =r'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2'
+stats_file=r'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2/stats.txt'
 solution_path=[]
 search_path=[]
 path_names=[]
@@ -42,6 +42,8 @@ for name, sol_path ,search_path in zip(path_names,solution_path,search_path):
             if file_in.endswith(".txt"):
                 sol_files.append(file_in)
     nb_files=len(sol_files)
+    if nb_files==0:
+        continue
     total_nb_steps=0
     for file_ in search_files:
         

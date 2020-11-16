@@ -24,6 +24,10 @@ class Greedy_best_first_h2(Informed_Search):
                 h2+=distance
         # return the smalllest h
         return min(h1,h2)
+
+    def cost_to_push(self,node):
+        return node.h
+
     def next_node(self):
         h_min=10000
         id_min=None

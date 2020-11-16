@@ -43,6 +43,11 @@ class Informed_Search:
             self.goal_state= True
         return False
 
+    def cost_to_push(self,node):
+        '''Needs to be overwite
+        This function should return the value to push in the priority queue
+        '''
+
     def f(self,h,g):
         '''
         Could be overwrite, but not necessarily
@@ -78,7 +83,7 @@ class Informed_Search:
         if new_node.nodeStateID not in self.close_list.keys():
             index_node=[(index,node[1]) for index,node in enumerate(self.open_list) if node[1].nodeStateID == new_node.nodeStateID]
             if not index_node:
-                heappush(self.open_list,(self.h(new_node),new_node))
+                heappush(self.open_list,(self.cost_to_push(new_node),new_node))
             else:
                 index,node=index_node[0]
                 if(new_node.g<node.g):

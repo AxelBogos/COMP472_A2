@@ -1,7 +1,7 @@
 import numpy as np
 import os
 def generate_puzzles(nb,dim,path):
-    with open(path,'a') as f:
+    with open(path,'w+') as f:
         arr=np.arange(dim)
         for i in range(nb):
             np.random.shuffle(arr)       
@@ -22,3 +22,4 @@ def swap(state,id_1,id_2):
     new_state=state.copy()
     new_state[id_1],new_state[id_2]=new_state[id_2], new_state[id_1]
     return new_state  
+#generate_puzzles(50,15,'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2/puzzles_3x5.txt')

@@ -1,6 +1,6 @@
 from Informed_Search import *
 
-class Uniform_cost(Informed_Search):
+class UCS(Informed_Search):
 
     def h(self,state):
         return 0

@@ -51,6 +51,10 @@ def main():
     get_stat()
 
 def get_stat():
+    '''
+     This function generates statistics based on all existing search/solution files. Pretty prints it in .txt file and
+     dumps data in a json
+     '''
 
     stat_file_name='stat.txt'
     stat_json='stat.json'
@@ -113,7 +117,7 @@ def get_stat():
                 "av_search_length": (search_path_length / solved_file_count),
                 "total_search_length": search_path_length
             })
-
+    #if there is json data, dump it
     if json_data:
         with open(stat_json, "w+") as outfile:
             json.dump(json_data, outfile)

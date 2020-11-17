@@ -28,11 +28,3 @@ class GBF_H2(Informed_Search):
     def cost_to_push(self,node):
         return node.h
 
-    def next_node(self):
-        h_min=10000
-        id_min=None
-        for i in range(len(self.open_list)):
-            if  h_min> self.open_list[i].h:
-                id_min=i
-                h_min=self.open_list[i].h
-        return id_min

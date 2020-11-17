@@ -1,7 +1,7 @@
 from utils import *
 from UCS import *
-from GBF_H1 import *
-from GBF_H2 import *
+from Greedy_best_first_h1 import *
+from Greedy_best_first_h2 import *
 from Astar_h1 import *
 from Astar_h2 import *
 import time
@@ -42,12 +42,6 @@ def main():
         if not os.path.exists('{}/Solution_files'.format(folder)):
             os.makedirs('{}/Solution_files'.format(folder))
 
-
-    #startSearch('UCS', UCS)
-    #startSearch('GBF_H1', GBF_H1)
-    #startSearch('GBF_H2', GBF_H2)
-    #startSearch('AStar_H1', AStar_H1)
-    #startSearch('AStar_H2',AStar_H2)
 
     #startSearch('UCS', UCS)
     startSearch('GBF_H1', GBF_H1)

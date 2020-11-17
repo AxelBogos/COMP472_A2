@@ -10,3 +10,4 @@ class GBF_H1(Informed_Search):
 
     def cost_to_push(self,node):
         return node.h
+

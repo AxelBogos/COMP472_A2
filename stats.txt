@@ -1,0 +1,24 @@
+GBFH2
+#Solution
+   Average Cost : 146.84
+   Average nb of move : 108.08
+#Search
+   Average time : 7.95s
+   Average steps : 1492.47
+
+UC
+#Solution
+   Average Cost : 10.941176470588236
+   Average nb of move : 9.823529411764707
+#Searchgi
+   Average time : 16.59s
+   Average steps : 3688.294117647059
+
+GBFH1
+#Solution
+   Average Cost : 317.88
+   Average nb of move : 209.1
+#Search
+   Average time : 4.07s
+   Average steps : 1280.72
+

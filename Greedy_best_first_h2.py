@@ -1,6 +1,24 @@
 from Informed_Search import *
 
+
+
 class GBF_H2(Informed_Search):
+    def __init__(self,initial_state,rows,cols):
+        self.current_node=Node(None,initial_state,0,0,0,0,0)
+        self.rows=rows
+        self.cols=cols
+        self.open_list = []
+        self.close_list = {self.current_node.nodeStateID:self.current_node}
+        self.goal_state_1=np.arange(self.rows*self.cols)
+        self.goal_state_2=[]
+        [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
+        self.goal_state=self.is_goal_state()
+        iF2=[]
+        for i in range(self.cols):
+            for j in range(self.rows):
+                iF2.append(i+j*self.cols)   
+        self.iF2=iF2
+
     def h (self, node):
         # for row in range(self.row)
         

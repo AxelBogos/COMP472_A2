@@ -1,6 +1,6 @@
 from Informed_Search import *
 
-class Greedy_best_first_h1(Informed_Search):
+class GBF_H1(Informed_Search):
 
     def h (self,node):
         f1=np.arange(8)

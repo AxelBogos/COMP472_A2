@@ -8,8 +8,8 @@ class info():
         self.average_cost=0
         self.average_search_step=0
 
-path_in =r'C:\Users\xavie\Documents\University\comp_472\COMP472_A2'
-stats_file=r'C:\Users\xavie\Documents\University\comp_472\COMP472_A2\stats.txt'
+path_in =os.getcwd()
+stats_file='{}\stats.txt'.format(path_in)
 solution_path=[]
 search_path=[]
 path_names=[]

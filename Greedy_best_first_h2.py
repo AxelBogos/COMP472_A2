@@ -1,7 +1,7 @@
 from Informed_Search import *
 
 
-class Greedy_best_first_h2(Informed_Search):
+class GBF_H2(Informed_Search):
     def h (self, node):
         f1=np.arange(8)
         f2=np.array([0,4,1,5,2,6,3,7])

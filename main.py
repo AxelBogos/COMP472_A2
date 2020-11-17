@@ -27,20 +27,26 @@ def callFunction(name,function):
             print('Solved!\n')
         else:
             print('No solution found.\n')
-        Search_path='GBFH2/Search_files/{}_{}_search.txt'.format(i,name)
-        Solution_path='GBFH2/Solution_files/{}_{}_solution.txt'.format(i,name)
+        Search_path='{}/Search_files/{}_{}_search.txt'.format(name,i,name)
+        Solution_path='{}/Solution_files/{}_{}_solution.txt'.format(name,i,name)
         heuristic.create_search_file(Search_path)
         heuristic.create_solution_file(Solution_path,total_time)
 
 def main():
-    if not os.path.exists('Search_files'):
-        os.makedirs('Search_files')
-    if not os.path.exists('Solution_files'):
-        os.makedirs('Solution_files')
+    #Make sure folders exist
+    for folder in ['UCS','GBF_H1','GBF_H2','AStar_H1','AStar_H2']:
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+        if not os.path.exists('{}/Search_files'.format(folder)):
+            os.makedirs('{}/Search_files'.format(folder))
+        if not os.path.exists('{}/Solution_files'.format(folder)):
+            os.makedirs('{}/Solution_files'.format(folder))
 
-    # callFunction('ucs', Uniform_cost)
-    # callFunction('gbf',Greedy_best_first_h1)
-    callFunction('Astar_h1',Astar_h1)
+    callFunction('UCS', UCS)
+    #callFunction('GBF_H1', GBF_H1)
+    #callFunction('GBF_H2', GBF_H2)
+    callFunction('AStar_H1', AStar_H1)
+    #callFunction('AStar_H2',AStar_H2)
 
 if __name__ == "__main__":
     main()

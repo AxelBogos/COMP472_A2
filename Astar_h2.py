@@ -1,6 +1,6 @@
 from Informed_Search import *
 
-class Astar_h2(Informed_Search):
+class AStar_H2(Informed_Search):
 
     def h (self,node):
         f1=np.arange(8)
@@ -21,8 +21,12 @@ class Astar_h2(Informed_Search):
             else:
                 index,node=index_node[0]
                 if(new_node.g<node.g):
+                    #Adjust h,g,f
                     self.open_list[index][1].g=new_node.g
                     self.open_list[index][1].h=self.h(self.open_list[index][1])
+                    self.open_list[index][1].f = self.open_list[index][1].h + self.open_list[index][1].g
+                    #New cost in priority queue
+                    self.open_list[index][0]=self.cost_to_push(self.open_list[index][1])
                     heapify(self.open_list)
         # unique to A*
         else:

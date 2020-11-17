@@ -1,7 +1,7 @@
 from utils import *
-from Uniform_cost import *
-from Greedy_best_first_h1 import *
-from Greedy_best_first_h2 import *
+from UCS import *
+from GBF_H1 import *
+from GBF_H2 import *
 from Astar_h1 import *
 from Astar_h2 import *
 import time
@@ -9,7 +9,7 @@ import json
 
 #Load all puzzles
 global puzzles
-puzzles,rows,cols=input_puzzles('puzzles_3x5.txt')
+puzzles,rows,cols=input_puzzles('puzzles.txt')
 
 #Solve all puzzles with Uniform_Cost
 
@@ -46,10 +46,10 @@ def main():
     #startSearch('UCS', UCS)
     #startSearch('GBF_H1', GBF_H1)
     #startSearch('GBF_H2', GBF_H2)
-    startSearch('AStar_H1', AStar_H1)
+    #startSearch('AStar_H1', AStar_H1)
     #startSearch('AStar_H2',AStar_H2)
 
-    startSearch('UCS', UCS)
+    #startSearch('UCS', UCS)
     startSearch('GBF_H1', GBF_H1)
     startSearch('GBF_H2', GBF_H2)
     startSearch('AStar_H1', AStar_H1)

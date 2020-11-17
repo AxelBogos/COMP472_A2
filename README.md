@@ -36,10 +36,13 @@ Execute the main() function of ```main.py```. The main() function will execute t
     startSearch('GBF_H2', GBF_H2)
     startSearch('AStar_H1', AStar_H1)
     startSearch('AStar_H2',AStar_H2)
+    get_stat()
 ```
 The following are generated in the excecution directory: 
 ```
 .
+| stat.txt
+| stat.json
 │
 └───AStar_H1
 |   └───Search_files

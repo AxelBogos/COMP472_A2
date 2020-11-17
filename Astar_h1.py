@@ -14,6 +14,9 @@ class AStar_H1(Informed_Search):
         return node.f
 
     def add_to_open_list(self,new_node):
+        '''
+         Overwrites the original function to include a check in the closed-list
+         '''
         if new_node.nodeStateID not in self.close_list.keys():
             index_node=[(index,node[1]) for index,node in enumerate(self.open_list) if node[1].nodeStateID == new_node.nodeStateID]
             if not index_node:

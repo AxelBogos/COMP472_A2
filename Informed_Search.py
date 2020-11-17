@@ -60,15 +60,6 @@ class Informed_Search:
         '''
         print('Need to be overwite')
         return 0
-    
-    def next_node(self):
-        '''
-        Need to be overwrite
-        This function should return the index of the next Node to visit in the open_list.
-        Return an int!
-        '''
-        print('Need to be overwrite') 
-        return 0
 
     def move(self):
             if not self.open_list:

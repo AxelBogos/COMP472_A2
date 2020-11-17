@@ -1,26 +1,6 @@
 from Informed_Search import *
 
-
-<<<<<<< HEAD
-class Greedy_best_first_h2(Informed_Search):
-    def __init__(self,initial_state,rows,cols):
-        self.current_node=Node(None,initial_state,0,0,0,0,0)
-        self.rows=rows
-        self.cols=cols
-        self.open_list = []
-        self.close_list = {self.current_node.nodeStateID:self.current_node}
-        self.goal_state_1=np.arange(self.rows*self.cols)
-        self.goal_state_2=[]
-        [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
-        self.goal_state=self.is_goal_state()
-        iF2=[]
-        for i in range(self.cols):
-            for j in range(self.rows):
-                iF2.append(i+j*self.cols)   
-        self.iF2=iF2
-=======
 class GBF_H2(Informed_Search):
->>>>>>> 7b3cd681aa56b44e52e48d25ad2f442dc0605202
     def h (self, node):
         # for row in range(self.row)
         
@@ -50,11 +30,4 @@ class GBF_H2(Informed_Search):
     def cost_to_push(self,node):
         return node.h
 
-    def next_node(self):
-        h_min=10000
-        id_min=None
-        for i in range(len(self.open_list)):
-            if  h_min> self.open_list[i].h:
-                id_min=i
-                h_min=self.open_list[i].h
-        return id_min
+

@@ -8,7 +8,6 @@ class info():
         self.average_cost=0
         self.average_search_step=0
 
-
 path_in =os.getcwd()
 stats_file='{}\stats.txt'.format(path_in)
 solution_path=[]

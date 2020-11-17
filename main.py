@@ -1,5 +1,5 @@
 from utils import *
-from UCS import *
+from Uniform_cost import *
 from Greedy_best_first_h1 import *
 from Greedy_best_first_h2 import *
 from Astar_h1 import *
@@ -9,7 +9,7 @@ import json
 
 #Load all puzzles
 global puzzles
-puzzles,rows,cols=input_puzzles('puzzles.txt')
+puzzles,rows,cols=input_puzzles('puzzles_3x5.txt')
 
 #Solve all puzzles with Uniform_Cost
 
@@ -43,7 +43,7 @@ def main():
             os.makedirs('{}/Solution_files'.format(folder))
 
 
-    #startSearch('UCS', UCS)
+    startSearch('UCS', UCS)
     startSearch('GBF_H1', GBF_H1)
     startSearch('GBF_H2', GBF_H2)
     startSearch('AStar_H1', AStar_H1)

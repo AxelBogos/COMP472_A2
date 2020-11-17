@@ -1,5 +1,5 @@
 from utils import *
-from UCS import *
+from Uniform_cost import *
 from Greedy_best_first_h1 import *
 from Greedy_best_first_h2 import *
 from Astar_h1 import *

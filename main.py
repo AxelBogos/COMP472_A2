@@ -1,7 +1,7 @@
 from utils import *
 from UCS import *
-from GBF_H1 import *
-from GBF_H2 import *
+from Greedy_best_first_h1 import *
+from Greedy_best_first_h2 import *
 from Astar_h1 import *
 from Astar_h2 import *
 import time

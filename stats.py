@@ -8,8 +8,13 @@ class info():
         self.average_cost=0
         self.average_search_step=0
 
+<<<<<<< HEAD
 path_in =r'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2'
 stats_file=r'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2/stats.txt'
+=======
+path_in =os.getcwd()
+stats_file='{}\stats.txt'.format(path_in)
+>>>>>>> 7b3cd681aa56b44e52e48d25ad2f442dc0605202
 solution_path=[]
 search_path=[]
 path_names=[]

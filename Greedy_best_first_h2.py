@@ -1,6 +1,7 @@
 from Informed_Search import *
 
 
+<<<<<<< HEAD
 class Greedy_best_first_h2(Informed_Search):
     def __init__(self,initial_state,rows,cols):
         self.current_node=Node(None,initial_state,0,0,0,0,0)
@@ -17,6 +18,9 @@ class Greedy_best_first_h2(Informed_Search):
             for j in range(self.rows):
                 iF2.append(i+j*self.cols)   
         self.iF2=iF2
+=======
+class GBF_H2(Informed_Search):
+>>>>>>> 7b3cd681aa56b44e52e48d25ad2f442dc0605202
     def h (self, node):
         # for row in range(self.row)
         

@@ -1,0 +1,13 @@
+UCS
+	Number of Solved Puzzles : 1
+	Number of Unsolved Puzzles : 1
+	Solution
+		Average Cost : 8.0
+		Average Execution Time : 0.47
+		Average Solution Path Length : 6.0
+		Total Cost : 8.0
+		Total Execution Time : 0.47
+		Total Solution Path Length : 6
+	Search
+		Average Search Path Length : 576.0
+		Total Search Path Length : 576

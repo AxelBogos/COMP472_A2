@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import os
-
 class info():
     def __init__(self,Name):
         self.name=Name

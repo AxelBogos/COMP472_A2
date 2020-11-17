@@ -132,8 +132,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#/AStar_H1/
-#/AStar_H2/
-#/GBF_H1/
-#/GBF_H2/
-#/UCS/
+/AStar_H1/
+/AStar_H2/
+/GBF_H1/
+/GBF_H2/
+/UCS/

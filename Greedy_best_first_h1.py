@@ -7,7 +7,7 @@ class GBF_H1(Informed_Search):
         h2=np.sum(node.state!=self.goal_state_2)
         # return the smalllest h
         return min(h1,h2)
+
     def cost_to_push(self,node):
         return node.h
 
-    

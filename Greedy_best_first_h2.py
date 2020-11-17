@@ -1,6 +1,7 @@
 from Informed_Search import *
 
 
+
 class GBF_H2(Informed_Search):
     def __init__(self,initial_state,rows,cols):
         self.current_node=Node(None,initial_state,0,0,0,0,0)
@@ -17,6 +18,7 @@ class GBF_H2(Informed_Search):
             for j in range(self.rows):
                 iF2.append(i+j*self.cols)   
         self.iF2=iF2
+
     def h (self, node):
         # for row in range(self.row)
         
@@ -46,11 +48,4 @@ class GBF_H2(Informed_Search):
     def cost_to_push(self,node):
         return node.h
 
-    def next_node(self):
-        h_min=10000
-        id_min=None
-        for i in range(len(self.open_list)):
-            if  h_min> self.open_list[i].h:
-                id_min=i
-                h_min=self.open_list[i].h
-        return id_min
+

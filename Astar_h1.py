@@ -26,7 +26,7 @@ class AStar_H1(Informed_Search):
                     self.open_list[index][1].h=self.h(self.open_list[index][1])
                     self.open_list[index][1].f = self.open_list[index][1].h + self.open_list[index][1].g
                     #New cost in priority queue
-                    self.open_list[index][0]=self.cost_to_push(self.open_list[index][1])
+                    self.open_list[index]=(self.cost_to_push(self.open_list[index][1]),self.open_list[index][1])
                     heapify(self.open_list)
         # unique to A*
         else:

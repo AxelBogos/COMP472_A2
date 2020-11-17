@@ -42,7 +42,7 @@ def main():
         if not os.path.exists('{}/Solution_files'.format(folder)):
             os.makedirs('{}/Solution_files'.format(folder))
 
-    callFunction('UCS', UCS)
+    #callFunction('UCS', UCS)
     #callFunction('GBF_H1', GBF_H1)
     #callFunction('GBF_H2', GBF_H2)
     callFunction('AStar_H1', AStar_H1)

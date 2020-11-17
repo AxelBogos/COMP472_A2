@@ -1,30 +1,33 @@
 from Informed_Search import *
 
-
 class GBF_H2(Informed_Search):
     def h (self, node):
-        f1=np.arange(8)
-        f2=np.array([0,4,1,5,2,6,3,7])
+        # for row in range(self.row)
+        
         h1=0
         h2=0
+        distance1=0
+        distance2=0
         for i ,obj in enumerate( node.state):
-            distance= abs(obj-i)
-            if distance>=4:
-                h1+=(distance-3)
+            distance1= abs(obj-i)
+            distance2= abs(self.iF2[obj]-i)
+            if distance1>=self.cols:
+                h1+=(distance1-(self.cols-1)*(distance1/(self.cols))+distance1/(self.cols))
             
             else:
-                h1+=distance
-            
-        for i ,obj in enumerate( node.state):
-            distance= abs(f2[obj]-i)
-            if distance>=4:
-                h2+=(distance-3)
+                h1+=distance1
+
+
+            if distance2>=self.cols:
+                h2+=(distance2-(self.cols-1)*(distance2/(self.cols))+distance2/(self.cols))
             
             else:
-                h2+=distance
+                h2+=distance2
+           
         # return the smalllest h
         return min(h1,h2)
 
     def cost_to_push(self,node):
         return node.h
+
 

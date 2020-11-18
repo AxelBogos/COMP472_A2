@@ -1,6 +1,7 @@
 # :beers: COMP 472 – Assignment 2 :tiger:
 
 [Repo URL](https://github.com/AxelBogos/COMP472_A2) <br>
+[Slides](https://docs.google.com/presentation/d/1lqt1E7gqXGl-2iToj_xRPEbHrbQZdWQsohK2AqTP_vI/edit?usp=sharing)<br>
 ---
 
 Axel Bogos - 40077502 <br>
@@ -91,5 +92,3 @@ The following are generated in the excecution directory:
 |   |   | ...
 ```
 ---
-## slide link
-https://docs.google.com/presentation/d/1lqt1E7gqXGl-2iToj_xRPEbHrbQZdWQsohK2AqTP_vI/edit?usp=sharing

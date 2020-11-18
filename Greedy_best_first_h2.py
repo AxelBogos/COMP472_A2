@@ -19,7 +19,7 @@ class GBF_H2(Informed_Search):
             for j in range(self.rows):
                 iF2.append(i+j*self.cols)   
         self.iF2=np.append(iF2[-1],iF2[:-1])
-        print('p')
+       
 
     def h (self, node):
         # for row in range(self.row)

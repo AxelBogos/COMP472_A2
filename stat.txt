@@ -15,51 +15,51 @@ GBF_H1
 	Number of Solved Puzzles : 50
 	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 42.84
-		Average Execution Time : 0.062
-		Average Solution Path Length : 24.78
-		Total Cost : 2142.0
-		Total Execution Time : 3.09
-		Total Solution Path Length : 1239
+		Average Cost : 60.28
+		Average Execution Time : 0.174
+		Average Solution Path Length : 37.72
+		Total Cost : 3014.0
+		Total Execution Time : 8.72
+		Total Solution Path Length : 1886
 	Search
-		Average Search Path Length : 38.72
-		Total Search Path Length : 1936
+		Average Search Path Length : 81.26
+		Total Search Path Length : 4063
 GBF_H2
 	Number of Solved Puzzles : 50
 	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 40.0
-		Average Execution Time : 0.115
-		Average Solution Path Length : 25.18
-		Total Cost : 2000.0
-		Total Execution Time : 5.73
-		Total Solution Path Length : 1259
+		Average Cost : 52.0
+		Average Execution Time : 0.522
+		Average Solution Path Length : 38.0
+		Total Cost : 2600.0
+		Total Execution Time : 26.1
+		Total Solution Path Length : 1900
 	Search
-		Average Search Path Length : 69.52
-		Total Search Path Length : 3476
+		Average Search Path Length : 207.38
+		Total Search Path Length : 10369
 AStar_H1
-	Number of Solved Puzzles : 50
-	Number of Unsolved Puzzles : 0
+	Number of Solved Puzzles : 36
+	Number of Unsolved Puzzles : 14
 	Solution
-		Average Cost : 13.44
-		Average Execution Time : 1.987
-		Average Solution Path Length : 11.26
-		Total Cost : 672.0
-		Total Execution Time : 99.36
-		Total Solution Path Length : 563
+		Average Cost : 15.167
+		Average Execution Time : 11.341
+		Average Solution Path Length : 12.861
+		Total Cost : 546.0
+		Total Execution Time : 408.27
+		Total Solution Path Length : 463
 	Search
-		Average Search Path Length : 683.4
-		Total Search Path Length : 34170
+		Average Search Path Length : 1854.25
+		Total Search Path Length : 66753
 AStar_H2
-	Number of Solved Puzzles : 50
-	Number of Unsolved Puzzles : 0
+	Number of Solved Puzzles : 32
+	Number of Unsolved Puzzles : 18
 	Solution
-		Average Cost : 13.44
-		Average Execution Time : 2.099
-		Average Solution Path Length : 11.26
-		Total Cost : 672.0
-		Total Execution Time : 104.93
-		Total Solution Path Length : 563
+		Average Cost : 15.0
+		Average Execution Time : 12.229
+		Average Solution Path Length : 12.75
+		Total Cost : 480.0
+		Total Execution Time : 391.33
+		Total Solution Path Length : 408
 	Search
-		Average Search Path Length : 683.4
-		Total Search Path Length : 34170
+		Average Search Path Length : 1549.0
+		Total Search Path Length : 49568

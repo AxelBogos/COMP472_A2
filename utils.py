@@ -22,4 +22,4 @@ def swap(state,id_1,id_2):
     new_state=state.copy()
     new_state[id_1],new_state[id_2]=new_state[id_2], new_state[id_1]
     return new_state  
-#generate_puzzles(50,15,'/Users/meiyiluan/Desktop/school/comp 472/COMP472_A2/puzzles_3x5.txt')
+#generate_puzzles(50,9,'puzzles_3x3.txt')

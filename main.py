@@ -9,16 +9,17 @@ import json
 
 #Load all puzzles
 global puzzles
-puzzles,rows,cols=input_puzzles('puzzles.txt')
+puzzles,rows,cols=input_puzzles('puzzles_3x3.txt')
 
 #Solve all puzzles with Uniform_Cost
 
 def startSearch(name,function):
+    print( '#{}#'.format(name))
     for i,puzzle in enumerate(puzzles):
         heuristic=function(puzzles[i],rows,cols)
         print('Begin to solve puzzle '+str(i))
         start=time.time()
-        while(not heuristic.goal_state and time.time()-start<180):
+        while(not heuristic.goal_state and time.time()-start<60):
             heuristic.update_open_list()
             heuristic.move()
         total_time=round(time.time()-start,2)
@@ -50,7 +51,7 @@ def main():
     #startSearch('AStar_H2',AStar_H2)
 
     #startSearch('UCS', UCS)
-    startSearch('GBF_H1', GBF_H1)
+    #startSearch('GBF_H1', GBF_H1)
     startSearch('GBF_H2', GBF_H2)
     startSearch('AStar_H1', AStar_H1)
     startSearch('AStar_H2',AStar_H2)

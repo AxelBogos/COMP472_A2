@@ -31,9 +31,11 @@ class Informed_Search:
         self.cols=cols
         self.open_list = []
         self.close_list = {self.current_node.nodeStateID:self.current_node}
-        self.goal_state_1=np.arange(self.rows*self.cols)
+        self.goal_state_1=np.append(np.arange(1,self.rows*self.cols),0)
         self.goal_state_2=[]
-        [self.goal_state_2.append(j+self.rows*i)   for j in range(self.rows) for i in range(self.cols)]
+        [self.goal_state_2.append(j+self.rows*i+1)   for j in range(self.rows) for i in range(self.cols)]
+        self.goal_state_2[-1]=0
+        
         self.goal_state=self.is_goal_state()
 
     def is_goal_state(self):

@@ -9,7 +9,7 @@ import json
 
 #Load all puzzles
 global puzzles
-puzzles,rows,cols=input_puzzles('puzzles_3x3.txt')
+puzzles,rows,cols=input_puzzles('puzzles.txt')
 
 #Solve all puzzles with Uniform_Cost
 
@@ -43,11 +43,11 @@ def main():
         if not os.path.exists('{}/Solution_files'.format(folder)):
             os.makedirs('{}/Solution_files'.format(folder))
 
-    startSearch('UCS', UCS)
+    #startSearch('UCS', UCS)
     startSearch('GBF_H1', GBF_H1)
     startSearch('GBF_H2', GBF_H2)
-    startSearch('AStar_H1', AStar_H1)
-    startSearch('AStar_H2',AStar_H2)
+    #startSearch('AStar_H1', AStar_H1)
+    #startSearch('AStar_H2',AStar_H2)
     get_stat()
 
 

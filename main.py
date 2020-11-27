@@ -8,12 +8,12 @@ import time
 import json
 
 #Load all puzzles
-global puzzles
-puzzles,rows,cols=input_puzzles('puzzles_3x3.txt')
+#global puzzles
+
 
 #Solve all puzzles with Uniform_Cost
 
-def startSearch(name,function):
+def startSearch(name,function,puzzles,rows,cols):
     print( '#{}#'.format(name))
     for i,puzzle in enumerate(puzzles):
         heuristic=function(puzzles[i],rows,cols)
@@ -35,7 +35,7 @@ def startSearch(name,function):
 
 def main():
     #Make sure folders exist
-    for folder in ['UCS','GBF_H1','GBF_H2','AStar_H1','AStar_H2']:
+    for folder in ['GBF_H1','GBF_H1_3x3','GBF_H1_3x5','GBF_H1_4x4']:
         if not os.path.exists(folder):
             os.makedirs(folder)
         if not os.path.exists('{}/Search_files'.format(folder)):
@@ -51,10 +51,18 @@ def main():
     #startSearch('AStar_H2',AStar_H2)
 
     #startSearch('UCS', UCS)
-    #startSearch('GBF_H1', GBF_H1)
-    startSearch('GBF_H2', GBF_H2)
-    startSearch('AStar_H1', AStar_H1)
-    startSearch('AStar_H2',AStar_H2)
+    puzzles,rows,cols=input_puzzles('puzzles.txt')
+    startSearch('GBF_H1', GBF_H1,puzzles,rows,cols)
+    puzzles,rows,cols=input_puzzles('puzzles_3x3.txt')
+    startSearch('GBF_H1_3x3', GBF_H1,puzzles,rows,cols)
+    puzzles,rows,cols=input_puzzles('puzzles_3x5.txt')
+    startSearch('GBF_H1_3x5', GBF_H1,puzzles,rows,cols)
+    puzzles,rows,cols=input_puzzles('puzzles_4x4.txt')
+    startSearch('GBF_H1_4x4', GBF_H1,puzzles,rows,cols)
+   
+    # startSearch('GBF_H2', GBF_H2)
+    # startSearch('AStar_H1', AStar_H1)
+    # startSearch('AStar_H2',AStar_H2)
     get_stat()
 
 
@@ -70,7 +78,7 @@ def get_stat():
     os.remove(stat_file_name) if os.path.exists(stat_file_name) else None
     os.remove(stat_json) if os.path.exists(stat_json) else None
 
-    for name in ['UCS','GBF_H1','GBF_H2','AStar_H1','AStar_H2']:
+    for name in ['GBF_H1','GBF_H1_3x3','GBF_H1_3x5','GBF_H1_4x4']:
         search_f_path = '{}/Search_files'.format(name)
         solution_f_path = '{}/Solution_files'.format(name)
         search_path_length=solution_path_length=solution_cost=no_solution_count=execution_time=file_count = 0

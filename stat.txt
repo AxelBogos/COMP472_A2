@@ -1,65 +1,52 @@
-UCS
-	Number of Solved Puzzles : 21
-	Number of Unsolved Puzzles : 29
-	Solution
-		Average Cost : 11.19
-		Average Execution Time : 17.399
-		Average Solution Path Length : 10.0
-		Total Cost : 235.0
-		Total Execution Time : 365.38
-		Total Solution Path Length : 210
-	Search
-		Average Search Path Length : 4207.333
-		Total Search Path Length : 88354
 GBF_H1
 	Number of Solved Puzzles : 50
 	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 60.28
-		Average Execution Time : 0.174
-		Average Solution Path Length : 37.72
-		Total Cost : 3014.0
-		Total Execution Time : 8.72
-		Total Solution Path Length : 1886
+		Average Cost : 43.74
+		Average Execution Time : 0.033
+		Average Solution Path Length : 26.42
+		Total Cost : 2187.0
+		Total Execution Time : 1.66
+		Total Solution Path Length : 1321
 	Search
-		Average Search Path Length : 81.26
-		Total Search Path Length : 4063
-GBF_H2
+		Average Search Path Length : 47.4
+		Total Search Path Length : 2370
+GBF_H1_3x3
 	Number of Solved Puzzles : 50
 	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 52.0
-		Average Execution Time : 0.522
-		Average Solution Path Length : 38.0
-		Total Cost : 2600.0
-		Total Execution Time : 26.1
-		Total Solution Path Length : 1900
+		Average Cost : 61.92
+		Average Execution Time : 0.062
+		Average Solution Path Length : 39.24
+		Total Cost : 3096.0
+		Total Execution Time : 3.1
+		Total Solution Path Length : 1962
 	Search
-		Average Search Path Length : 207.38
-		Total Search Path Length : 10369
-AStar_H1
-	Number of Solved Puzzles : 36
-	Number of Unsolved Puzzles : 14
+		Average Search Path Length : 77.66
+		Total Search Path Length : 3883
+GBF_H1_3x5
+	Number of Solved Puzzles : 50
+	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 15.167
-		Average Execution Time : 11.341
-		Average Solution Path Length : 12.861
-		Total Cost : 546.0
-		Total Execution Time : 408.27
-		Total Solution Path Length : 463
+		Average Cost : 345.84
+		Average Execution Time : 4.537
+		Average Solution Path Length : 228.14
+		Total Cost : 17292.0
+		Total Execution Time : 226.86
+		Total Solution Path Length : 11407
 	Search
-		Average Search Path Length : 1854.25
-		Total Search Path Length : 66753
-AStar_H2
-	Number of Solved Puzzles : 32
-	Number of Unsolved Puzzles : 18
+		Average Search Path Length : 1596.88
+		Total Search Path Length : 79844
+GBF_H1_4x4
+	Number of Solved Puzzles : 50
+	Number of Unsolved Puzzles : 0
 	Solution
-		Average Cost : 15.0
-		Average Execution Time : 12.229
-		Average Solution Path Length : 12.75
-		Total Cost : 480.0
-		Total Execution Time : 391.33
-		Total Solution Path Length : 408
+		Average Cost : 372.9
+		Average Execution Time : 6.265
+		Average Solution Path Length : 252.96
+		Total Cost : 18645.0
+		Total Execution Time : 313.26
+		Total Solution Path Length : 12648
 	Search
-		Average Search Path Length : 1549.0
-		Total Search Path Length : 49568
+		Average Search Path Length : 1763.88
+		Total Search Path Length : 88194

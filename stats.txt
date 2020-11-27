@@ -1,0 +1,8 @@
+GBFH1
+#Solution
+   Average Cost : 24.1
+   Average nb of move : 15.38
+#Search
+   Average time : 0.03s
+   Average steps : 52.28
+
